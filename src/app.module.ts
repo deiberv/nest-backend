@@ -22,6 +22,11 @@ import { User } from './user/entities/user.entity';
         username: configService.get('DB_USER'),
         database: configService.get('DB_NAME'),
         ssl: configService.get('DB_SSL'),
+        extra: {
+          ssl: configService.get('DB_SSL') ? {
+            rejectUnauthorized: false,
+          } : null,
+        },
         retryDelay: 3000,
         autoLoadEntities: true,
         synchronize: true,
