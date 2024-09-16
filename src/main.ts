@@ -8,6 +8,11 @@ async function bootstrap() {
   app.useGlobalPipes(
     new ValidationPipe(),
   );
+  app.enableCors({
+    origin: '*',
+    methods: 'GET,PATCH,POST,DELETE',
+    allowedHeaders: 'Content-Type, Accept',
+  });
   await app.listen(3000);
 }
 bootstrap();
